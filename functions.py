@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """Модуль описывает набор различных функций. """
+import numpy as np
 
 
 def f1(x):
@@ -18,3 +19,10 @@ def f2(x):
         return 5
     else:
         return -5
+
+
+def f3(x):
+    """1 / (x - 1)"""
+    if x == 1:
+        return np.nan
+    return 1.0 / (x - 1)
