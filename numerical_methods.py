@@ -222,6 +222,8 @@ def false_position(f, a, b, delta_x=10e-5, delta_y=10e-5, show_iter_info=False):
     if show_iter_info:
         sp.show_iterations_info(aas, bbs, rtfs)
 
+    graphics.plot_false_position(f, aas, bbs, rtfs)
+
     if fabs(f_rtf) <= delta_y:
         sp.print_result(method, f, rtf, nx, ny, timer() - start)
         return "Корень найден"

@@ -58,6 +58,16 @@ def plot_point(ax, f, x, letter, with_line=False):
         ax.plot((x, x), (0, f(x)), 'b', lw=0.5, linestyle='--')
 
 
+def plot_line(ax, f, x1, x2):
+    """
+    Plot line with coordinates.
+    :param x1: x1
+    :param x2: x2
+    """
+    ax.plot((x1, x2), (f(x1), f(x2)), 'b', lw=0.5, linestyle='--')
+
+
+
 def calc_row_and_columns(length):
     """
     Рассчитать размер сетки графиков в зависимости от
@@ -74,3 +84,54 @@ def calc_row_and_columns(length):
         return 2, 2
     else:
         return 2, 2
+
+
+def plot_false_position(f, aas, bbs, rts):
+    """
+    Plot the process of false position method.
+    :param f: function.
+    :param aas: left borders.
+    :param bbs: right borders.
+    :param rts: roots.
+    """
+    fig = plt.figure()
+    length = max(len(aas), len(bbs), len(rts))
+    rows, columns = calc_row_and_columns(length)
+    gs = GridSpec(rows, columns, figure=fig)
+
+    # Массив значений х.
+    xs = np.arange(aas[0], bbs[0], 0.01)
+
+    ai = aas[0]
+    bi = bbs[0]
+    rtsi = rts[0]
+
+    # Отобразить итерации метода.
+    for i, splot in enumerate(gs):
+        ax = fig.add_subplot(splot)
+
+        if len(aas) > i:
+            ai = aas[i]
+
+        if len(bbs) > i:
+            bi = bbs[i]
+
+        if len(rts) > i:
+            rtsi = rts[i]
+
+        # Отобразить функцию.
+        ax.plot(xs, [f(x) for x in xs], color='r')
+
+        # Отобразить координатные оси.
+        ax.axhline(0, color='gray', lw=1)
+        ax.axvline(0, color='gray', lw=1)
+
+        plot_point(ax, f, ai, 'a', with_line=True)
+        plot_point(ax, f, bi, 'b', with_line=True)
+        plot_point(ax, f, rtsi, 'm', with_line=True)
+
+        # The only addition from false position method todo consider make base function for depiction.
+        # line linking two boundary points.
+        plot_line(ax, f, ai, bi)
+
+    plt.show()
