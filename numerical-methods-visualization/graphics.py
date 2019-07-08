@@ -52,8 +52,8 @@ def plot_point(ax, f, x, letter, with_line=False):
     :param letter: буква для обозначения точки на оси.
     :param with_line: проводить вертикальную прямую до функции.
     """
-    ax.text(x + 0.05, 0, letter, style='italic', fontsize=12)
-    ax.plot(x, 0, marker='o', color='black', markersize=3)
+    ax.text(x + 0.05, 5, letter, style='italic', fontsize=15)
+    ax.plot(x, 0, marker='o', color='black', markersize=5)
     if with_line:
         ax.plot((x, x), (0, f(x)), 'b', lw=0.5, linestyle='--')
 
@@ -65,7 +65,6 @@ def plot_line(ax, f, x1, x2):
     :param x2: x2
     """
     ax.plot((x1, x2), (f(x1), f(x2)), 'b', lw=0.5, linestyle='--')
-
 
 
 def calc_row_and_columns(length):
@@ -109,6 +108,8 @@ def plot_false_position(f, aas, bbs, rts):
     # Отобразить итерации метода.
     for i, splot in enumerate(gs):
         ax = fig.add_subplot(splot)
+
+        ax.set_title(str(i + 1) + ' iteration', fontsize=15)
 
         if len(aas) > i:
             ai = aas[i]
