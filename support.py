@@ -53,3 +53,33 @@ def print_doesnt_converge(method, func, root, nx, ny, time):
           'Число итераций по х: {}\n'
           'Число итераций по y: {}\n'
           'Время выполнения: {} c\n\n'.format(method, func.__doc__, root, nx, ny, time))
+
+
+def show_iterations_info(a, b, rts):
+    """
+    Show information about calculation process
+    iteration-wise.
+    :param a array : left borders.
+    :param b: array right borders.
+    :param rts: array roots.
+    :return:
+    """
+
+    print('  |   a   |   b   |   root')
+
+    ai = a[0]
+    bi = b[0]
+    rtsi = rts[0]
+
+    for i in range(max(len(a), len(b), len(rts))):
+
+        if len(a) > i:
+            ai = a[i]
+
+        if len(b) > i:
+            bi = b[i]
+
+        if len(rts) > i:
+            rtsi = rts[i]
+
+        print('{} |   {}   |   {}   |   {}   '.format(i, ai, bi, rtsi))
