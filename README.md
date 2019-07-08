@@ -6,6 +6,12 @@ Projects python version: 2.7
 
 Modules needed: numpy, matplotlib
 
+Advantages of the project:
+- Simple implementation of numerical methods
+- Simple visualization with matplotlib
+- Finding discontinuous functions
+- Easy statistics
+
 ## Quickstart
 
 Currentely there are two methods supported
