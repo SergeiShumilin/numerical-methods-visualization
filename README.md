@@ -23,9 +23,11 @@ In order to use them the next syntax is used:
 from numerical-methods-visualization.numerical_methods import bisection
 from numerical-methods-visualization.numerical_methods import false_position
 ```
-numerical-methods-visualization.numerical_methods.**bisection**(*a, b, delta_x=10e-5, delta_y=10e-5, show_iter_info=False*)
+numerical-methods-visualization.numerical_methods.**bisection**(*f, a, b, delta_x=10e-5, delta_y=10e-5, show_iter_info=False*)
 
 **Parameters:**
+
+**f**              :  function
 
 **a, b**           :  borders to find the root
 
