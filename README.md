@@ -26,15 +26,15 @@ from numerical-methods-visualization.numerical_methods import false_position
 ```
 numerical-methods-visualization.numerical_methods.**bisection**(*f, a, b, delta_x=10e-5, delta_y=10e-5, show_iter_info=False*)
 
-**Parameters:**
+Parameters:
 
-**f**              :  function
+f             :  function
 
-**a, b**           :  borders to find the root
+a, b          :  borders to find the root
 
-**delta_x**        :  accuracy when converging in x
+delta_x       :  accuracy when converging in x
 
-**delta_y**        :  accuracy when converging in y
+delta_y       :  accuracy when converging in y
 
-**show_iter_info** : display iterative process in console
+show_iter_info : display iterative process in console
 ```
