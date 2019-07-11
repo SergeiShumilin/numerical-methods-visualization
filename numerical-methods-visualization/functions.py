@@ -26,3 +26,8 @@ def f3(x):
     if x == 1:
         return np.nan
     return 1.0 / (x - 1)
+
+
+def f4(x):
+    """(((x - 1)^2) / 10) - 5"""
+    return  (((x - 1) ** 2) / 10) - 5

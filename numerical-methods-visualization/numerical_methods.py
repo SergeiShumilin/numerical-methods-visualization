@@ -14,11 +14,12 @@ MAX_ITERATIONS_X = 100
 MAX_ITERATIONS_Y = 100
 
 
-def bisection(f, a, b, delta_x=10e-5, delta_y=10e-5):
+def bisection(f, a, b, delta_x=10e-5, delta_y=10e-5, show_iter_info=False):
     """
     Метод бисекции.
     Метод, который всегда сходится. Если начальный интервал содержит несколько корней,
     то метод найдет один из них. Сходится, если функция претерпевает разрыв.
+    :param show_iter_info:
     :param f: функция для отыскания решения.
     :param a: левая граница отрезка для поиска корня.
     :param b: правая граница отрезка для поиска корня.
@@ -111,6 +112,9 @@ def bisection(f, a, b, delta_x=10e-5, delta_y=10e-5):
 
         j += 1
         ny += 1
+
+    if show_iter_info:
+        sp.show_iterations_info(aas, bbs, mms)
 
     # Отобразить графики для бисекции.
     graphics.plot_bisection(f, aas, bbs, mms)
